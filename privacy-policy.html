@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | BoilerRepairInPortsmouth.co.uk</title>
+<meta name="description" content="Privacy Policy for boilerrepairinportsmouth.co.uk — how we collect, use and protect your personal data.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fire: #E8380D;
+    --navy: #0B1F3A;
+    --white: #FFFFFF;
+    --offwhite: #F4F6F8;
+    --text: #1A2332;
+    --muted: #5A6A7E;
+    --border: #D8E2EE;
+    --green: #1E9E52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: var(--offwhite);
+    line-height: 1.75;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--fire);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--fire);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-brand span { color: var(--navy); }
+
+  .back-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--fire); }
+
+  /* HERO */
+  .page-hero {
+    background: var(--navy);
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero h1 span { color: var(--fire); }
+
+  .page-hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+  }
+
+  /* CONTENT */
+  .content-wrap {
+    max-width: 820px;
+    margin: 3rem auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .policy-card {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+  }
+
+  .policy-section {
+    padding: 2.2rem 2.5rem;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .policy-section:last-child { border-bottom: none; }
+
+  .policy-section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .policy-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--fire);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .policy-section p {
+    font-size: 0.97rem;
+    color: var(--muted);
+    margin-bottom: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .policy-section p:last-child { margin-bottom: 0; }
+
+  .policy-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0.6rem 0 0.9rem;
+  }
+
+  .policy-section ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .policy-section ul li::before {
+    content: '→';
+    color: var(--fire);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .policy-section a {
+    color: var(--fire);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .policy-section a:hover { text-decoration: underline; }
+
+  strong { color: var(--text); font-weight: 600; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(232,56,13,0.06);
+    border: 1.5px solid rgba(232,56,13,0.2);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .highlight-box p {
+    color: var(--text) !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* ICO BOX */
+  .ico-box {
+    background: var(--offwhite);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .ico-box-icon {
+    width: 36px; height: 36px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .ico-box p { margin: 0 !important; font-size: 0.93rem !important; }
+
+  /* DATE BADGE */
+  .date-badge {
+    display: inline-block;
+    background: var(--offwhite);
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.8rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: var(--fire);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.2rem; }
+    .policy-section { padding: 1.6rem 1.4rem; }
+    .content-wrap { padding: 0 1rem 3rem; }
+    .page-hero { padding: 2.5rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">BoilerRepair<span>InPortsmouth</span>.co.uk</a>
+  <a href="index.html" class="back-link">
+    ← Back to Home
+  </a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>Privacy <span>Policy</span></h1>
+  <p>How we collect, use, and protect your personal data</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <div class="date-badge">Last updated: January 2025</div>
+
+  <div class="policy-card">
+
+    <!-- 1. Who We Are -->
+    <div class="policy-section">
+      <h2>1. Who We Are</h2>
+      <p>
+        This website is operated by <strong>BoilerRepairInPortsmouth.co.uk</strong>, a lead generation service based in the United Kingdom. We connect homeowners and landlords in the Portsmouth area with local Gas Safe registered heating engineers.
+      </p>
+      <p>
+        We are the <strong>data controller</strong> for personal information collected through this website. This means we are responsible for deciding how and why your data is used, and we are committed to handling it lawfully and transparently.
+      </p>
+      <p>
+        For any questions about this policy, contact us at: <a href="mailto:info@boilerrepairinportsmouth.co.uk">info@boilerrepairinportsmouth.co.uk</a>
+      </p>
+    </div>
+
+    <!-- 2. What Data We Collect -->
+    <div class="policy-section">
+      <h2>2. What Personal Data We Collect</h2>
+      <p>When you submit a quote request or contact form on our website, we may collect:</p>
+      <ul>
+        <li>Your full name</li>
+        <li>Your phone number</li>
+        <li>Your email address</li>
+        <li>Your postcode or address</li>
+        <li>Details of the service you require (e.g. boiler repair, installation)</li>
+        <li>Any additional information you choose to include in your message</li>
+      </ul>
+      <p>We also collect standard technical data automatically when you visit our website, including your IP address, browser type, pages visited, and time of visit. This is collected via cookies and analytics tools (see Section 7).</p>
+    </div>
+
+    <!-- 3. How We Use Your Data -->
+    <div class="policy-section">
+      <h2>3. How We Use Your Data</h2>
+      <p>We use the personal data you provide for the following purposes:</p>
+      <ul>
+        <li><strong>To pass your enquiry to a local engineer</strong> — this is the core purpose of our service. Your contact details and job description will be shared with a Gas Safe registered engineer in your area so they can contact you with a quote.</li>
+        <li><strong>To follow up on your enquiry</strong> — we may contact you to confirm your request was received or to check if you need further help.</li>
+        <li><strong>To improve our service</strong> — we use anonymised data to understand how our website is used and to improve the experience for future visitors.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Important:</strong> By submitting a form on this website, you are consenting to your details being passed to one or more local Gas Safe engineers who will contact you directly. We only work with vetted, registered engineers.</p>
+      </div>
+    </div>
+
+    <!-- 4. Legal Basis -->
+    <div class="policy-section">
+      <h2>4. Our Legal Basis for Processing</h2>
+      <p>Under UK GDPR, we process your personal data on the following legal grounds:</p>
+      <ul>
+        <li><strong>Consent</strong> — you actively submit a form requesting our service, which constitutes clear consent for us to process and share your details with an engineer.</li>
+        <li><strong>Legitimate interests</strong> — we may use your data to improve our website and services, where this does not override your rights and freedoms.</li>
+        <li><strong>Contract</strong> — where you engage with an engineer through our service, processing your data is necessary to facilitate that arrangement.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Who We Share Data With -->
+    <div class="policy-section">
+      <h2>5. Who We Share Your Data With</h2>
+      <p>We may share your personal data with:</p>
+      <ul>
+        <li><strong>Gas Safe registered engineers</strong> in the Portsmouth area, for the purpose of responding to your service request. These engineers are independent third parties and will contact you directly.</li>
+        <li><strong>Our technology providers</strong>, such as email delivery services or form processing tools, who process data on our behalf under strict data processing agreements.</li>
+      </ul>
+      <p>We <strong>do not</strong> sell your personal data to any third party for marketing purposes. We <strong>do not</strong> share your data with any party outside the UK, except where standard cloud services (e.g. email providers) may store data in the EU or US under appropriate safeguards.</p>
+    </div>
+
+    <!-- 6. How Long We Keep Data -->
+    <div class="policy-section">
+      <h2>6. How Long We Keep Your Data</h2>
+      <p>We retain your personal data only for as long as necessary:</p>
+      <ul>
+        <li>Enquiry and contact form data is retained for up to <strong>12 months</strong> from the date of submission, to allow for follow-up and service quality purposes.</li>
+        <li>After this period, personal data is securely deleted or anonymised.</li>
+        <li>You can request deletion of your data at any time (see Section 8).</li>
+      </ul>
+    </div>
+
+    <!-- 7. Cookies -->
+    <div class="policy-section">
+      <h2>7. Cookies &amp; Analytics</h2>
+      <p>Our website uses cookies — small text files stored on your device — to help us understand how visitors use our site. We use:</p>
+      <ul>
+        <li><strong>Essential cookies</strong> — necessary for the website to function correctly.</li>
+        <li><strong>Analytics cookies</strong> (e.g. Google Analytics) — to collect anonymised data about page visits and user behaviour, helping us improve our site. No personally identifiable information is collected via analytics.</li>
+      </ul>
+      <p>You can control cookies through your browser settings. Disabling cookies may affect some website functionality. By continuing to use our website, you consent to our use of cookies as described above.</p>
+    </div>
+
+    <!-- 8. Your Rights -->
+    <div class="policy-section">
+      <h2>8. Your Rights Under UK GDPR</h2>
+      <p>You have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Right to access</strong> — you can request a copy of the personal data we hold about you.</li>
+        <li><strong>Right to rectification</strong> — you can ask us to correct any inaccurate data.</li>
+        <li><strong>Right to erasure</strong> — you can ask us to delete your personal data ("right to be forgotten").</li>
+        <li><strong>Right to restrict processing</strong> — you can ask us to limit how we use your data.</li>
+        <li><strong>Right to object</strong> — you can object to us processing your data based on legitimate interests.</li>
+        <li><strong>Right to withdraw consent</strong> — where processing is based on consent, you can withdraw it at any time.</li>
+        <li><strong>Right to data portability</strong> — you can request your data in a portable format.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:info@boilerrepairinportsmouth.co.uk">info@boilerrepairinportsmouth.co.uk</a>. We will respond within <strong>30 days</strong>.</p>
+    </div>
+
+    <!-- 9. ICO -->
+    <div class="policy-section">
+      <h2>9. The ICO &amp; How to Complain</h2>
+      <p>We are registered with the <strong>Information Commissioner's Office (ICO)</strong> as required under UK data protection law.</p>
+
+      <div class="ico-box">
+        <div class="ico-box-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <p>If you believe we have handled your data unlawfully, you have the right to lodge a complaint with the ICO at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or by calling <strong>0303 123 1113</strong>. We would, however, appreciate the chance to address your concerns first — please contact us before approaching the ICO.</p>
+      </div>
+    </div>
+
+    <!-- 10. Security -->
+    <div class="policy-section">
+      <h2>10. How We Protect Your Data</h2>
+      <p>We take data security seriously and have put in place appropriate technical and organisational measures to protect your personal data against accidental loss, unauthorised access, or disclosure. These include:</p>
+      <ul>
+        <li>Secure HTTPS encryption across the entire website</li>
+        <li>Limited access to personal data — only those who need it to process your request</li>
+        <li>Secure email practices for transmitting enquiry data to engineers</li>
+      </ul>
+      <p>While we do everything we can to protect your data, no method of transmission over the internet is 100% secure. If you have concerns, please contact us directly.</p>
+    </div>
+
+    <!-- 11. Third Party Links -->
+    <div class="policy-section">
+      <h2>11. Links to Other Websites</h2>
+      <p>Our website may contain links to external websites (for example, gassaferegister.co.uk). This privacy policy applies only to our website. We are not responsible for the privacy practices of any third-party sites and encourage you to read their policies separately.</p>
+    </div>
+
+    <!-- 12. Changes -->
+    <div class="policy-section">
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time to reflect changes in our practices or in data protection law. We will always display the date it was last updated at the top of this page. We recommend checking back periodically.</p>
+      <p>Continued use of our website after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- 13. Contact -->
+    <div class="policy-section">
+      <h2>13. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests relating to this privacy policy or your personal data, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@boilerrepairinportsmouth.co.uk">info@boilerrepairinportsmouth.co.uk</a></li>
+        <li><strong>Website:</strong> <a href="index.html">boilerrepairinportsmouth.co.uk</a></li>
+        <li><strong>Subject line:</strong> "Data Privacy Request"</li>
+      </ul>
+      <p>We will acknowledge your request within 5 working days and respond in full within 30 days.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 boilerrepairinportsmouth.co.uk · <a href="index.html">Home</a> · <a href="mailto:info@boilerrepairinportsmouth.co.uk">Contact Us</a></p>
+  <p style="margin-top:0.4rem; font-size:0.78rem;">Registered with the ICO · UK GDPR Compliant</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boiler Repair in Portsmouth | Fast, Local & Gas Safe Engineers</title>
+<meta name="description" content="Boiler repair, servicing & installation across Portsmouth, Cosham, Gosport, Havant & Southsea. Gas Safe engineers available 24/7. Get a free quote today.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fire: #E8380D;
+    --fire-d: #B02800;
+    --navy: #0B1F3A;
+    --navy-mid: #142A4E;
+    --steel: #2B4A72;
+    --sky: #3A8FC7;
+    --white: #FFFFFF;
+    --offwhite: #F4F6F8;
+    --text: #1A2332;
+    --muted: #5A6A7E;
+    --border: #D8E2EE;
+    --green: #1E9E52;
+    --yellow: #F5A623;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.45rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.02em;
+  }
+
+  .top-bar a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+  .top-bar .badges { display: flex; gap: 1.5rem; align-items: center; }
+  .top-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .top-badge svg { color: var(--green); }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 3px solid var(--fire);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 70px;
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand-top {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--fire);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .brand-sub {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0 1.4rem;
+    height: 70px;
+    line-height: 70px;
+    transition: color 0.2s, background 0.2s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+  }
+
+  nav ul li a:hover {
+    color: var(--fire);
+    background: rgba(232,56,13,0.04);
+    border-bottom-color: var(--fire);
+  }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .call-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--fire);
+    color: var(--white) !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    padding: 0 1.6rem !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    border-radius: 4px !important;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: none !important;
+    white-space: nowrap;
+  }
+
+  .call-btn:hover {
+    background: var(--fire-d) !important;
+    transform: translateY(-1px) !important;
+    border-bottom-color: transparent !important;
+  }
+
+  /* ── HERO ── */
+  #home {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* diagonal stripe texture */
+  #home::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.025) 28px,
+      rgba(255,255,255,0.025) 30px
+    );
+    z-index: 0;
+  }
+
+  /* fire accent slash */
+  #home::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 0; bottom: 0;
+    width: 520px;
+    background: linear-gradient(135deg, var(--fire) 0%, var(--fire-d) 100%);
+    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.12;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--fire);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 3px;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--fire);
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .trust-item svg { color: var(--green); flex-shrink: 0; }
+
+  /* ── LEAD FORM (hero) ── */
+  .lead-form-box {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--fire);
+  }
+
+  .form-group textarea { resize: none; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--fire);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    padding: 0.95rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.3rem;
+  }
+
+  .submit-btn:hover {
+    background: var(--fire-d);
+    transform: translateY(-2px);
+  }
+
+  .form-note {
+    font-size: 0.76rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--fire);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+  }
+
+  .trust-stat strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .trust-stat span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* ── SECTION STYLES ── */
+  .section-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fire);
+    border-left: 3px solid var(--fire);
+    padding-left: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-h2 span { color: var(--fire); }
+
+  .section-intro {
+    font-size: 1.08rem;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 660px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--offwhite);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 2rem 1.8rem;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    border-color: var(--fire);
+    box-shadow: 0 6px 24px rgba(232,56,13,0.12);
+    transform: translateY(-3px);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, rgba(232,56,13,0.1), rgba(232,56,13,0.05));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fire);
+    margin-bottom: 1.1rem;
+  }
+
+  .service-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+  }
+
+  .service-body {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── AREAS / MAP ── */
+  #areas {
+    background: var(--white);
+  }
+
+  .areas-layout {
+    display: grid;
+    grid-template-columns: 1fr 520px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .area-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--offwhite);
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    cursor: default;
+  }
+
+  .chip:hover {
+    background: rgba(232,56,13,0.06);
+    border-color: var(--fire);
+    color: var(--fire);
+  }
+
+  .chip svg { color: var(--fire); }
+
+  .map-frame {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: 420px;
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  #about .section-h2 { color: var(--white); }
+  #about .section-intro { color: rgba(255,255,255,0.68); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .feature-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(232,56,13,0.15);
+    border: 1.5px solid rgba(232,56,13,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fire);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-text strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+  .feature-text p {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.6;
+  }
+
+  .about-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .gas-safe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--green);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    margin-bottom: 1.8rem;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-box {
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .stat-box strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--fire);
+    line-height: 1;
+  }
+
+  .stat-box span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--offwhite);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-form-full {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2.5rem;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .contact-info-col {
+    padding-top: 0.5rem;
+  }
+
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .contact-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .contact-block-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fire);
+  }
+
+  .contact-block-val {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-block-val:hover { color: var(--fire); }
+
+  .contact-block-note {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .emergency-box {
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .emergency-box strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--fire);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .emergency-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .emergency-box a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.55);
+    padding: 3rem 2.5rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-brand span { color: var(--fire); }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--fire); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-bottom a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+
+  .gas-safe-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--green);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  /* sticky call bar mobile */
+  .sticky-call {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 999;
+    background: var(--fire);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .areas-layout { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .sticky-call { display: block; }
+    body { padding-bottom: 56px; }
+    nav ul { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .top-bar .badges { display: none; }
+    .trust-bar { gap: 1.5rem; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>📍 Serving Portsmouth & Surrounding Areas</span>
+  <div class="badges">
+    <span class="top-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      Gas Safe Registered
+    </span>
+    <span class="top-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      24/7 Emergency Cover
+    </span>
+    <span>Call us: <a href="tel:02392000000">023 9200 0000</a></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="brand-top">BoilerRepair<span style="color:var(--navy)">InPortsmouth</span></span>
+    <span class="brand-sub">.co.uk · Gas Safe Engineers</span>
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#areas">Where We Cover</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <a href="tel:02392000000" class="call-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.6 3.35 2 2 0 013.57 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.64a16 16 0 006 6l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16z"/></svg>
+    023 9200 0000
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+        Available Now — Fast Response
+      </div>
+      <h1 class="hero-title">Boiler Repair<br>in <em>Portsmouth</em></h1>
+      <p class="hero-desc">
+        Local Gas Safe engineers covering Portsmouth, Gosport, Havant, Cosham & Southsea.
+        Fast response, no call-out fee on bookings, and honest prices — every time.
+      </p>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Gas Safe Registered
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Same-Day Appointments
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          No Fix, No Fee
+        </div>
+      </div>
+    </div>
+
+    <!-- LEAD CAPTURE FORM -->
+    <div class="lead-form-box">
+      <div class="form-title">Get a Free Quote</div>
+      <div class="form-subtitle">We'll match you with a local engineer fast.</div>
+      <div class="form-group">
+        <label for="q-name">Your Name</label>
+        <input id="q-name" type="text" placeholder="John Smith" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="q-phone">Phone Number</label>
+        <input id="q-phone" type="tel" placeholder="07700 000000" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="q-postcode">Postcode</label>
+        <input id="q-postcode" type="text" placeholder="PO1 1AA" autocomplete="postal-code">
+      </div>
+      <div class="form-group">
+        <label for="q-service">Service Needed</label>
+        <select id="q-service">
+          <option value="">— Select a service —</option>
+          <option>Boiler Repair</option>
+          <option>Boiler Service / Annual Check</option>
+          <option>New Boiler Installation</option>
+          <option>Central Heating Repair</option>
+          <option>Central Heating Installation</option>
+          <option>Gas Leak / Emergency</option>
+          <option>Landlord Gas Safety Certificate</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="q-desc">Brief Description (optional)</label>
+        <textarea id="q-desc" rows="3" placeholder="e.g. boiler not firing, no hot water..."></textarea>
+      </div>
+      <button class="submit-btn" id="quote-submit-btn">
+        &#8594; &nbsp; Send My Request — It's Free
+      </button>
+      <p class="form-note">🔒 Your details are never shared. We'll call you within the hour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-stat"><strong>500+</strong><span>Jobs Completed</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat"><strong>24/7</strong><span>Emergency Cover</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat"><strong>1hr</strong><span>Average Response</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat"><strong>100%</strong><span>Gas Safe Engineers</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-stat"><strong>4.9★</strong><span>Customer Rating</span></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-wrap">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-h2">Our <span>Services</span></h2>
+    <p class="section-intro">From emergency breakdowns to full central heating installations, our Gas Safe engineers handle it all across Portsmouth.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <div class="service-title">Boiler Repairs</div>
+        <p class="service-body">No heat or hot water? Our engineers diagnose and repair all makes and models — same day where possible.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        </div>
+        <div class="service-title">New Boiler Installation</div>
+        <p class="service-body">Upgrade to an A-rated combi or system boiler. We supply and install all leading brands with full warranty.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="service-title">Annual Boiler Service</div>
+        <p class="service-body">Keep your boiler safe, efficient and covered by warranty. We issue a full service certificate on completion.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <div class="service-title">Central Heating Repairs</div>
+        <p class="service-body">Cold radiators, pressure drops, leaking pipes — we fix the full system and get your home warm again.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="service-title">Gas Safety Certificates</div>
+        <p class="service-body">Landlord CP12 gas safety checks carried out by Gas Safe engineers. Fast turnaround for lettings compliance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="service-title">Gas Leaks & Emergencies</div>
+        <p class="service-body">Suspect a gas leak? We provide 24/7 emergency call-outs across Portsmouth and the surrounding area.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE COVER + MAP -->
+<section id="areas">
+  <div class="section-wrap">
+    <div class="section-label">Coverage</div>
+    <h2 class="section-h2">Where We <span>Cover</span></h2>
+    <p class="section-intro">We serve Portsmouth and all nearby areas. If you're not sure whether we cover your postcode, give us a call — we'll let you know straight away.</p>
+
+    <div class="areas-layout">
+      <div>
+        <div class="area-chips">
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Portsmouth City Centre
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Southsea
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Cosham
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Gosport
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Havant
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Fareham
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Waterlooville
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Portchester
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Emsworth
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Lee-on-the-Solent
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Chichester
+          </div>
+          <div class="chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Isle of Wight
+          </div>
+        </div>
+
+        <div style="margin-top:2rem; padding:1.5rem; background:var(--offwhite); border-radius:6px; border-left:4px solid var(--fire);">
+          <p style="font-size:0.95rem; color:var(--text-soft); line-height:1.7;">
+            <strong style="color:var(--navy); font-family:'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:0.04em; font-size:1rem;">Not sure if we cover your area?</strong><br>
+            Call us on <a href="tel:02392000000" style="color:var(--fire); font-weight:700; text-decoration:none;">023 9200 0000</a> and we'll confirm in seconds. We aim to reach most PO postcodes within 60 minutes.
+          </p>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d40327.36!2d-1.0872!3d50.8058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48745ccac1fb5a75%3A0x385048bf03204349!2sPortsmouth!5e0!3m2!1sen!2suk!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Portsmouth map — areas covered">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div>
+        <div class="section-label" style="color:rgba(255,255,255,0.5); border-color:var(--fire);">Who We Are</div>
+        <h2 class="section-h2" style="color:var(--white);">Local Engineers<br><span>You Can Trust</span></h2>
+        <p class="section-intro">We're a Portsmouth-based network of Gas Safe registered engineers. When you submit a lead through our site, we match you with the closest available engineer — fast, reliable, no fuss.</p>
+
+        <div class="about-features">
+          <div class="feature-row">
+            <div class="feature-dot">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>100% Gas Safe Registered</strong>
+              <p>Every engineer we work with is fully Gas Safe registered and vetted. Always legally compliant.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Fast Response Times</strong>
+              <p>We aim to have an engineer with you within 1 hour for emergencies across the PO postcode area.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Transparent, Fair Pricing</strong>
+              <p>No hidden charges. You get a full quote before any work begins — no surprises on the invoice.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feature-dot">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="feature-text">
+              <strong>Domestic & Commercial</strong>
+              <p>From family homes to HMOs, offices and rental properties — our engineers cover it all.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="gas-safe-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Gas Safe Registered Engineers
+        </div>
+        <p>
+          <strong style="color:white;">boilerrepairinportsmouth.co.uk</strong> connects homeowners and landlords across the Portsmouth area with trusted, local Gas Safe engineers.
+        </p>
+        <p>
+          We're not a big national call centre — we're a local lead generation service that only works with vetted engineers who know Portsmouth inside out.
+        </p>
+        <p>
+          Submit your details and we'll match you with the right engineer for the job, usually calling you back within 60 minutes.
+        </p>
+        <div class="stat-row">
+          <div class="stat-box">
+            <strong>500+</strong>
+            <span>Jobs Completed</span>
+          </div>
+          <div class="stat-box">
+            <strong>4.9★</strong>
+            <span>Avg. Rating</span>
+          </div>
+          <div class="stat-box">
+            <strong>1hr</strong>
+            <span>Response Time</span>
+          </div>
+          <div class="stat-box">
+            <strong>100%</strong>
+            <span>Gas Safe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-h2">Contact <span>Us</span></h2>
+
+    <div class="contact-layout">
+      <div class="contact-form-full">
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--navy); margin-bottom:0.3rem;">Request a Callback</div>
+        <div style="font-size:0.88rem; color:var(--muted); margin-bottom:1.5rem;">Fill in the form and a local engineer will call you back shortly.</div>
+        <div class="form-group">
+          <label for="c-name">Full Name</label>
+          <input id="c-name" type="text" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="c-phone">Phone Number</label>
+          <input id="c-phone" type="tel" placeholder="Your phone number" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email Address</label>
+          <input id="c-email" type="email" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="c-postcode">Postcode</label>
+          <input id="c-postcode" type="text" placeholder="e.g. PO1 2AB" autocomplete="postal-code">
+        </div>
+        <div class="form-group">
+          <label for="c-service">Service Required</label>
+          <select id="c-service">
+            <option value="">— Please select —</option>
+            <option>Boiler Repair</option>
+            <option>Boiler Service</option>
+            <option>New Boiler Installation</option>
+            <option>Central Heating Repair</option>
+            <option>Central Heating Installation</option>
+            <option>Gas Leak / Emergency</option>
+            <option>Landlord Gas Safety Certificate</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" rows="3" placeholder="Describe the issue or any extra details..."></textarea>
+        </div>
+        <button class="submit-btn" id="contact-submit-btn">Send Request — Free &amp; No Obligation</button>
+        <p class="form-note" style="margin-top:0.8rem;">🔒 Secure. We never sell your data. We'll respond within 60 minutes.</p>
+      </div>
+
+      <div class="contact-info-col">
+        <div class="contact-block">
+          <span class="contact-block-label">Phone</span>
+          <a href="tel:02392000000" class="contact-block-val">023 9200 0000</a>
+          <span class="contact-block-note">Mon–Fri 8am–8pm · Sat 9am–5pm</span>
+        </div>
+        <div class="contact-block">
+          <span class="contact-block-label">Email</span>
+          <a href="mailto:info@boilerrepairinportsmouth.co.uk" class="contact-block-val" style="font-size:1rem;">info@boilerrepairinportsmouth.co.uk</a>
+          <span class="contact-block-note">We aim to reply within 2 hours</span>
+        </div>
+        <div class="contact-block">
+          <span class="contact-block-label">Coverage Area</span>
+          <span class="contact-block-val" style="cursor:default;">All PO Postcodes</span>
+          <span class="contact-block-note">Portsmouth, Gosport, Havant, Fareham &amp; surrounds</span>
+        </div>
+
+        <div class="emergency-box">
+          <strong>🔥 Emergency? Call Now 24/7</strong>
+          <p>Gas leak, no heating, boiler breakdown — we have engineers on call around the clock.</p>
+          <a href="tel:02392000000">023 9200 0000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">BoilerRepair<span>InPortsmouth</span>.co.uk</div>
+        <p class="footer-desc">Connecting Portsmouth homeowners and landlords with trusted, local Gas Safe engineers. Fast response. Fair prices. No hassle.</p>
+        <div style="margin-top:1.2rem;">
+          <span class="gas-safe-footer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Gas Safe Engineers Only
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#areas">Where We Cover</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Boiler Repairs</a></li>
+          <li><a href="#services">Boiler Installation</a></li>
+          <li><a href="#services">Boiler Servicing</a></li>
+          <li><a href="#services">Central Heating</a></li>
+          <li><a href="#services">Gas Safety Certs</a></li>
+          <li><a href="#services">Emergency Cover</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 boilerrepairinportsmouth.co.uk · All rights reserved</span>
+      <span>Gas Safe lead generation service · Portsmouth, Hampshire · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.5); text-decoration:none;" onmouseover="this.style.color='#E8380D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile call bar -->
+<a href="tel:02392000000" class="sticky-call">📞 &nbsp; Call Now — 023 9200 0000</a>
+
+<!-- Form submission handler -->
+<script src="form-handler.js"></script>
+
+</body>
+</html>
