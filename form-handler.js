@@ -156,9 +156,10 @@
       if (!nameEl.value.trim())    { flashRequired(nameEl);    return; }
       if (!phoneEl.value.trim())   { flashRequired(phoneEl);   return; }
       if (!serviceEl.value.trim()) { flashRequired(serviceEl); return; }
-
+     
       submitForm(
-           'http://localhost:3000/api/contact',        {
+  `${window.location.origin}/api/quote`,
+         {
           name:        nameEl.value.trim(),
           phone:       phoneEl.value.trim(),
           postcode:    postcodeEl ? postcodeEl.value.trim() : '',
@@ -190,8 +191,10 @@
       if (!nameEl.value.trim())  { flashRequired(nameEl);  return; }
       if (!phoneEl.value.trim()) { flashRequired(phoneEl); return; }
 
-      submitForm(
-        'http://localhost:3000/api/contact',        {
+     submitForm(
+  `${window.location.origin}/api/contact`,
+  
+  {
           name:     nameEl.value.trim(),
           phone:    phoneEl.value.trim(),
           email:    emailEl    ? emailEl.value.trim()    : '',
