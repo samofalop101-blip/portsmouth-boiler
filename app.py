@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 
 # -------------------------------------------------
 # Load .env
+# This is one of my project
 # -------------------------------------------------
 load_dotenv()
 
