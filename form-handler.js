@@ -1,205 +1,183 @@
-// =============================================================
-//  form-handler.js  —  Boiler Repair in Portsmouth
-//  Handles both forms: hero quote form + contact callback form
-// =============================================================
-
 (function () {
   'use strict';
 
-  // ── CHANGE THIS IN DEV / PROD ────────────────────────────────
   const API_BASE = "http://localhost:5000";
 
-  // ── Inject spinner keyframe CSS once ─────────────────────────
+  // ── Spinner CSS ─────────────────────────────
   const styleTag = document.createElement('style');
   styleTag.textContent = `
-    @keyframes btn-spin {
+    @keyframes spin {
       from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
-    .btn-spinner {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 7px;
-      animation: btn-spin 0.7s linear infinite;
+    .spinner {
+      display:inline-block;
+      margin-right:8px;
+      animation: spin 0.8s linear infinite;
     }
   `;
   document.head.appendChild(styleTag);
 
-  // ── Spinner SVG ───────────────────────────────────────────────
-  const SPINNER_SVG = `
-    <svg class="btn-spinner" width="18" height="18" viewBox="0 0 24 24"
-         fill="none" stroke="currentColor" stroke-width="2.5">
+  const SPINNER = `
+    <svg class="spinner" width="18" height="18" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2.5">
       <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
-               M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-    </svg>`;
+      M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+    </svg>
+  `;
 
-  function successHTML(firstName) {
-    const greeting = firstName ? ', ' + firstName + '!' : '!';
-    return `
-      <div style="text-align:center;padding:2.5rem 1rem;">
-        <div style="width:68px;height:68px;background:#e6f9ee;border-radius:50%;
-          display:flex;align-items:center;justify-content:center;
-          margin:0 auto 1.3rem;border:2.5px solid #1E9E52;">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-               stroke="#1E9E52" stroke-width="2.5">
-            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
+  // ── Helpers ─────────────────────────────
 
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;
-          font-weight:900;color:#0B1F3A;text-transform:uppercase;
-          letter-spacing:0.04em;margin-bottom:0.7rem;">
-          Message Received${greeting}
-        </div>
-
-        <p style="font-size:0.97rem;color:#5A6A7E;line-height:1.7;max-width:300px;margin:0 auto;">
-          Your request has been sent successfully. We'll get back to you within
-          <strong style="color:#0B1F3A;">60 minutes</strong>.
-        </p>
-      </div>`;
+  function flash(el) {
+    el.style.border = "2px solid #E8380D";
+    el.style.boxShadow = "0 0 0 3px rgba(232,56,13,0.2)";
+    el.focus();
+    setTimeout(() => {
+      el.style.border = "";
+      el.style.boxShadow = "";
+    }, 1500);
   }
 
-  function showError(btn, message) {
-    const old = btn.parentElement.querySelector('.form-error-msg');
+  function error(btn, msg) {
+    const old = btn.parentElement.querySelector('.err');
     if (old) old.remove();
 
-    const el = document.createElement('p');
-    el.className = 'form-error-msg';
+    const el = document.createElement('div');
+    el.className = "err";
+    el.textContent = msg;
     el.style.cssText = `
-      color:#E8380D;font-size:0.84rem;font-weight:600;margin-top:0.7rem;
-      text-align:center;background:rgba(232,56,13,0.06);
-      border:1.5px solid rgba(232,56,13,0.25);border-radius:5px;
-      padding:0.6rem 0.9rem;`;
-    el.textContent = '⚠ ' + message;
+      color:#E8380D;
+      font-size:13px;
+      margin-top:8px;
+      text-align:center;
+      background:#ffeaea;
+      padding:8px;
+      border-radius:6px;
+    `;
     btn.insertAdjacentElement('afterend', el);
   }
 
-  function flashRequired(el) {
-    el.style.borderColor = '#E8380D';
-    el.style.boxShadow = '0 0 0 3px rgba(232,56,13,0.15)';
-    el.focus();
-    setTimeout(() => {
-      el.style.borderColor = '';
-      el.style.boxShadow = '';
-    }, 2200);
+  function success(container, name) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:30px;">
+        <h2 style="color:#0B1F3A;">Thanks ${name || ""}!</h2>
+        <p>Your request has been sent. We will contact you soon.</p>
+      </div>
+    `;
   }
 
-  async function submitForm(endpoint, payload, btn, container) {
-    const originalHTML = btn.innerHTML;
+  // ── MAIN REQUEST ─────────────────────────────
+  async function send(endpoint, data, btn, container) {
+    const original = btn.innerHTML;
 
     btn.disabled = true;
-    btn.innerHTML = SPINNER_SVG + 'Sending…';
-    btn.style.opacity = '0.82';
-    btn.style.cursor = 'not-allowed';
-
-    const oldErr = btn.parentElement.querySelector('.form-error-msg');
-    if (oldErr) oldErr.remove();
+    btn.innerHTML = SPINNER + "Sending...";
+    btn.style.opacity = "0.7";
 
     try {
       const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
-      const data = await res.json();
+      const json = await res.json();
 
-      if (data.success) {
-        container.innerHTML = successHTML(
-          (payload.name || '').trim().split(' ')[0]
-        );
+      if (json.success) {
+        success(container, data.name?.split(" ")[0]);
       } else {
-        showError(btn, data.message || 'Something went wrong.');
+        error(btn, json.message || "Failed to send request");
         btn.disabled = false;
-        btn.innerHTML = originalHTML;
-        btn.style.opacity = '1';
-        btn.style.cursor = 'pointer';
+        btn.innerHTML = original;
+        btn.style.opacity = "1";
       }
 
-    } catch (err) {
-      showError(btn, 'Network error — please try again.');
+    } catch (e) {
+      error(btn, "Server not reachable");
       btn.disabled = false;
-      btn.innerHTML = originalHTML;
-      btn.style.opacity = '1';
-      btn.style.cursor = 'pointer';
+      btn.innerHTML = original;
+      btn.style.opacity = "1";
     }
   }
 
-  function initQuoteForm() {
+  // ── QUOTE FORM ─────────────────────────────
+  function quoteForm() {
     const container = document.querySelector('.lead-form-box');
     if (!container) return;
 
-    const nameEl = document.getElementById('q-name');
-    const phoneEl = document.getElementById('q-phone');
-    const postcodeEl = document.getElementById('q-postcode');
-    const serviceEl = document.getElementById('q-service');
-    const descEl = document.getElementById('q-desc');
+    const form = document.getElementById('quote-form') || container;
+
+    const name = document.getElementById('q-name');
+    const phone = document.getElementById('q-phone');
+    const service = document.getElementById('q-service');
+    const postcode = document.getElementById('q-postcode');
+    const desc = document.getElementById('q-desc');
     const btn = document.getElementById('quote-submit-btn');
 
-    if (!btn || !nameEl || !phoneEl || !serviceEl) return;
+    if (!btn || !name || !phone || !service) return;
 
-    btn.addEventListener('click', () => {
-      if (!nameEl.value.trim()) return flashRequired(nameEl);
-      if (!phoneEl.value.trim()) return flashRequired(phoneEl);
-      if (!serviceEl.value.trim()) return flashRequired(serviceEl);
+    function handleSubmit(e) {
+      e.preventDefault();
 
-      submitForm(
-        `${API_BASE}/api/quote`,
-        {
-          name: nameEl.value.trim(),
-          phone: phoneEl.value.trim(),
-          postcode: postcodeEl ? postcodeEl.value.trim() : '',
-          service: serviceEl.value.trim(),
-          description: descEl ? descEl.value.trim() : '',
-        },
-        btn,
-        container
-      );
-    });
+      if (!name.value.trim()) return flash(name);
+      if (!phone.value.trim()) return flash(phone);
+      if (!service.value.trim()) return flash(service);
+
+      send(`${API_BASE}/api/quote`, {
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        service: service.value.trim(),
+        postcode: postcode?.value.trim() || "",
+        description: desc?.value.trim() || "",
+      }, btn, container);
+    }
+
+    // IMPORTANT: works for BOTH click + form submit
+    btn.addEventListener('click', handleSubmit);
+    form.addEventListener('submit', handleSubmit);
   }
 
-  function initContactForm() {
+  // ── CONTACT FORM ─────────────────────────────
+  function contactForm() {
     const container = document.querySelector('.contact-form-full');
     if (!container) return;
 
-    const nameEl = document.getElementById('c-name');
-    const phoneEl = document.getElementById('c-phone');
-    const emailEl = document.getElementById('c-email');
-    const postcodeEl = document.getElementById('c-postcode');
-    const serviceEl = document.getElementById('c-service');
-    const messageEl = document.getElementById('c-message');
+    const form = document.getElementById('contact-form') || container;
+
+    const name = document.getElementById('c-name');
+    const phone = document.getElementById('c-phone');
+    const email = document.getElementById('c-email');
+    const postcode = document.getElementById('c-postcode');
+    const service = document.getElementById('c-service');
+    const message = document.getElementById('c-message');
     const btn = document.getElementById('contact-submit-btn');
 
-    if (!btn || !nameEl || !phoneEl) return;
+    if (!btn || !name || !phone) return;
 
-    btn.addEventListener('click', () => {
-      if (!nameEl.value.trim()) return flashRequired(nameEl);
-      if (!phoneEl.value.trim()) return flashRequired(phoneEl);
+    function handleSubmit(e) {
+      e.preventDefault();
 
-      submitForm(
-        `${API_BASE}/api/contact`,
-        {
-          name: nameEl.value.trim(),
-          phone: phoneEl.value.trim(),
-          email: emailEl ? emailEl.value.trim() : '',
-          postcode: postcodeEl ? postcodeEl.value.trim() : '',
-          service: serviceEl ? serviceEl.value.trim() : '',
-          message: messageEl ? messageEl.value.trim() : '',
-        },
-        btn,
-        container
-      );
-    });
+      if (!name.value.trim()) return flash(name);
+      if (!phone.value.trim()) return flash(phone);
+
+      send(`${API_BASE}/api/contact`, {
+        name: name.value.trim(),
+        phone: phone.value.trim(),
+        email: email?.value.trim() || "",
+        postcode: postcode?.value.trim() || "",
+        service: service?.value.trim() || "",
+        message: message?.value.trim() || "",
+      }, btn, container);
+    }
+
+    btn.addEventListener('click', handleSubmit);
+    form.addEventListener('submit', handleSubmit);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initQuoteForm();
-      initContactForm();
-    });
-  } else {
-    initQuoteForm();
-    initContactForm();
-  }
+  // ── INIT ─────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    quoteForm();
+    contactForm();
+  });
 
 })();

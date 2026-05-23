@@ -3,13 +3,14 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
-from flask import Flask, request, jsonify
+
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 
 # -------------------------------------------------
 # Load .env
-# # -------------------------------------------------
+# -------------------------------------------------
 load_dotenv()
 
 MAIL_USER = os.getenv("MAIL_USER")
@@ -21,6 +22,13 @@ WORK_EMAIL = os.getenv("WORK_EMAIL")
 # -------------------------------------------------
 app = Flask(__name__)
 CORS(app)
+
+# -------------------------------------------------
+# Serve frontend (index.html in same folder)
+# -------------------------------------------------
+@app.route("/")
+def serve_index():
+    return send_from_directory(os.getcwd(), "index.html")
 
 # -------------------------------------------------
 # Helpers
@@ -83,7 +91,6 @@ def build_email_html(title, icon, data):
     </body>
     </html>
     """
-
 
 def send_email(subject, html, reply_to=None):
     msg = MIMEMultipart()
