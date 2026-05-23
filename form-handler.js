@@ -1,183 +1,154 @@
 (function () {
   'use strict';
 
-  const API_BASE = "http://localhost:5000";
+  // Correctly builds API base — never doubles the port
+  const API_BASE = window.location.protocol + '//' + window.location.hostname + ':5000';
 
-  // ── Spinner CSS ─────────────────────────────
+  // Spinner CSS
   const styleTag = document.createElement('style');
   styleTag.textContent = `
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .spinner {
-      display:inline-block;
-      margin-right:8px;
-      animation: spin 0.8s linear infinite;
-    }
+    @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+    .spinner { display:inline-block; margin-right:8px; animation:spin 0.8s linear infinite; }
   `;
   document.head.appendChild(styleTag);
 
-  const SPINNER = `
-    <svg class="spinner" width="18" height="18" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2.5">
-      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83
-      M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-    </svg>
-  `;
-
-  // ── Helpers ─────────────────────────────
+  const SPINNER = '<svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>';
 
   function flash(el) {
-    el.style.border = "2px solid #E8380D";
-    el.style.boxShadow = "0 0 0 3px rgba(232,56,13,0.2)";
+    el.style.border = '2px solid #E8380D';
+    el.style.boxShadow = '0 0 0 3px rgba(232,56,13,0.2)';
     el.focus();
-    setTimeout(() => {
-      el.style.border = "";
-      el.style.boxShadow = "";
-    }, 1500);
+    setTimeout(() => { el.style.border = ''; el.style.boxShadow = ''; }, 1500);
   }
 
-  function error(btn, msg) {
+  function showError(btn, msg) {
     const old = btn.parentElement.querySelector('.err');
     if (old) old.remove();
-
     const el = document.createElement('div');
-    el.className = "err";
+    el.className = 'err';
     el.textContent = msg;
-    el.style.cssText = `
-      color:#E8380D;
-      font-size:13px;
-      margin-top:8px;
-      text-align:center;
-      background:#ffeaea;
-      padding:8px;
-      border-radius:6px;
-    `;
+    el.style.cssText = 'color:#E8380D;font-size:13px;margin-top:8px;text-align:center;background:#ffeaea;padding:8px;border-radius:6px;';
     btn.insertAdjacentElement('afterend', el);
   }
 
-  function success(container, name) {
-    container.innerHTML = `
-      <div style="text-align:center;padding:30px;">
-        <h2 style="color:#0B1F3A;">Thanks ${name || ""}!</h2>
-        <p>Your request has been sent. We will contact you soon.</p>
-      </div>
-    `;
+  function showSuccess(container, name) {
+    container.innerHTML = '<div style="text-align:center;padding:30px 20px;"><div style="font-size:3rem;margin-bottom:1rem;">✅</div><h2 style="color:#0B1F3A;margin-bottom:0.5rem;">Thanks ' + (name || '') + '!</h2><p style="color:#5A6A7E;">Your request has been sent. A local engineer will call you back shortly.</p></div>';
   }
 
-  // ── MAIN REQUEST ─────────────────────────────
-  async function send(endpoint, data, btn, container) {
+  async function sendRequest(endpoint, data, btn, container) {
     const original = btn.innerHTML;
-
     btn.disabled = true;
-    btn.innerHTML = SPINNER + "Sending...";
-    btn.style.opacity = "0.7";
+    btn.innerHTML = SPINNER + 'Sending...';
+    btn.style.opacity = '0.7';
 
     try {
       const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
-      const json = await res.json();
+      let json;
+      try { json = await res.json(); } catch(e) { throw new Error('Bad server response'); }
 
       if (json.success) {
-        success(container, data.name?.split(" ")[0]);
+        showSuccess(container, data.name ? data.name.split(' ')[0] : '');
       } else {
-        error(btn, json.message || "Failed to send request");
+        showError(btn, json.message || 'Failed to send. Please try again.');
         btn.disabled = false;
         btn.innerHTML = original;
-        btn.style.opacity = "1";
+        btn.style.opacity = '1';
       }
-
     } catch (e) {
-      error(btn, "Server not reachable");
+      console.error('Form error:', e);
+      showError(btn, 'Could not reach server. Please call us directly.');
       btn.disabled = false;
       btn.innerHTML = original;
-      btn.style.opacity = "1";
+      btn.style.opacity = '1';
     }
   }
 
-  // ── QUOTE FORM ─────────────────────────────
-  function quoteForm() {
+  // ── QUOTE FORM (hero) ──────────────────────────────────────────
+  function initQuoteForm() {
     const container = document.querySelector('.lead-form-box');
     if (!container) return;
 
-    const form = document.getElementById('quote-form') || container;
-
-    const name = document.getElementById('q-name');
-    const phone = document.getElementById('q-phone');
-    const service = document.getElementById('q-service');
+    const name     = document.getElementById('q-name');
+    const phone    = document.getElementById('q-phone');
+    const service  = document.getElementById('q-service');
     const postcode = document.getElementById('q-postcode');
-    const desc = document.getElementById('q-desc');
-    const btn = document.getElementById('quote-submit-btn');
+    const desc     = document.getElementById('q-desc');
+    const btn      = document.getElementById('quote-submit-btn');
 
-    if (!btn || !name || !phone || !service) return;
+    if (!btn) return;
 
-    function handleSubmit(e) {
+    btn.addEventListener('click', function(e) {
       e.preventDefault();
 
-      if (!name.value.trim()) return flash(name);
-      if (!phone.value.trim()) return flash(phone);
-      if (!service.value.trim()) return flash(service);
+      // Clear old errors
+      var old = container.querySelector('.err');
+      if (old) old.remove();
 
-      send(`${API_BASE}/api/quote`, {
-        name: name.value.trim(),
-        phone: phone.value.trim(),
-        service: service.value.trim(),
-        postcode: postcode?.value.trim() || "",
-        description: desc?.value.trim() || "",
+      // Validate
+      if (!name || !name.value.trim())    { if(name) flash(name); return; }
+      if (!phone || !phone.value.trim())  { if(phone) flash(phone); return; }
+      if (!service || !service.value.trim()) { if(service) flash(service); return; }
+
+      sendRequest(API_BASE + '/api/quote', {
+        name:        name.value.trim(),
+        phone:       phone.value.trim(),
+        service:     service.value.trim(),
+        postcode:    postcode ? postcode.value.trim() : '',
+        description: desc ? desc.value.trim() : ''
       }, btn, container);
-    }
-
-    // IMPORTANT: works for BOTH click + form submit
-    btn.addEventListener('click', handleSubmit);
-    form.addEventListener('submit', handleSubmit);
+    });
   }
 
-  // ── CONTACT FORM ─────────────────────────────
-  function contactForm() {
+  // ── CONTACT FORM ──────────────────────────────────────────────
+  function initContactForm() {
     const container = document.querySelector('.contact-form-full');
     if (!container) return;
 
-    const form = document.getElementById('contact-form') || container;
-
-    const name = document.getElementById('c-name');
-    const phone = document.getElementById('c-phone');
-    const email = document.getElementById('c-email');
+    const name     = document.getElementById('c-name');
+    const phone    = document.getElementById('c-phone');
+    const email    = document.getElementById('c-email');
     const postcode = document.getElementById('c-postcode');
-    const service = document.getElementById('c-service');
-    const message = document.getElementById('c-message');
-    const btn = document.getElementById('contact-submit-btn');
+    const service  = document.getElementById('c-service');
+    const message  = document.getElementById('c-message');
+    const btn      = document.getElementById('contact-submit-btn');
 
-    if (!btn || !name || !phone) return;
+    if (!btn) return;
 
-    function handleSubmit(e) {
+    btn.addEventListener('click', function(e) {
       e.preventDefault();
 
-      if (!name.value.trim()) return flash(name);
-      if (!phone.value.trim()) return flash(phone);
+      var old = container.querySelector('.err');
+      if (old) old.remove();
 
-      send(`${API_BASE}/api/contact`, {
-        name: name.value.trim(),
-        phone: phone.value.trim(),
-        email: email?.value.trim() || "",
-        postcode: postcode?.value.trim() || "",
-        service: service?.value.trim() || "",
-        message: message?.value.trim() || "",
+      if (!name || !name.value.trim())   { if(name) flash(name); return; }
+      if (!phone || !phone.value.trim()) { if(phone) flash(phone); return; }
+
+      sendRequest(API_BASE + '/api/contact', {
+        name:     name.value.trim(),
+        phone:    phone.value.trim(),
+        email:    email ? email.value.trim() : '',
+        postcode: postcode ? postcode.value.trim() : '',
+        service:  service ? service.value.trim() : '',
+        message:  message ? message.value.trim() : ''
       }, btn, container);
-    }
-
-    btn.addEventListener('click', handleSubmit);
-    form.addEventListener('submit', handleSubmit);
+    });
   }
 
-  // ── INIT ─────────────────────────────
-  document.addEventListener('DOMContentLoaded', () => {
-    quoteForm();
-    contactForm();
-  });
+  // ── INIT ──────────────────────────────────────────────────────
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initQuoteForm();
+      initContactForm();
+    });
+  } else {
+    // DOM already ready (script loaded at bottom of body)
+    initQuoteForm();
+    initContactForm();
+  }
 
 })();

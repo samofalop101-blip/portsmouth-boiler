@@ -26,6 +26,10 @@ CORS(app)
 # -------------------------------------------------
 # Serve frontend (index.html in same folder)
 # -------------------------------------------------
+@app.route("/form-handler.js")
+def serve_js():
+    return send_from_directory(os.getcwd(), "form-handler.js")
+
 @app.route("/")
 def serve_index():
     return send_from_directory(os.getcwd(), "index.html")
